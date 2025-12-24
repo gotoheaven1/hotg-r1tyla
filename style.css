@@ -639,3 +639,75 @@ canvas { display: block; position: absolute; top: 0; left: 0; z-index: 1; } /* �
         opacity: 0;
     }
 }
+/* =========================================
+   [UI DETAILS: SCROLLBAR & SELECTION]
+   ========================================= */
+
+/* 1. 커스텀 스크롤바 (Webkit 브라우저용: 크롬, 사파리, 엣지) */
+::-webkit-scrollbar {
+    width: 8px; /* 스크롤바 너비 */
+}
+
+::-webkit-scrollbar-track {
+    background: #050505; /* 스크롤바 배경 (어두운 색) */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #cfac65, #8a6e3e); /* 금빛 그라데이션 */
+    border-radius: 4px; /* 둥근 모서리 */
+    border: 2px solid #050505; /* 여백 느낌 주기 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e0c070; /* 마우스 올렸을 때 더 밝게 */
+}
+
+/* 2. 텍스트 드래그(선택) 색상 변경 */
+::selection {
+    background-color: var(--chanel-gold); /* 금색 배경 */
+    color: #000; /* 검은색 글씨 */
+    text-shadow: none;
+}
+
+::-moz-selection { /* 파이어폭스 대응 */
+    background-color: var(--chanel-gold);
+    color: #000;
+}
+/* =========================================
+   [FEATURE 2: GOLDEN DUST & MAGNETIC EFFECT]
+   ========================================= */
+
+/* 1. 금가루(Dust) 스타일 */
+.gold-dust {
+    position: fixed; /* 스크롤 내려도 화면에 떠있음 */
+    top: 0; left: 0;
+    width: 2px; height: 2px;
+    background: var(--chanel-gold);
+    border-radius: 50%;
+    pointer-events: none; /* 클릭 방해 안 함 */
+    z-index: 50; /* 배경보단 위에, 컨텐츠보단 아래에 */
+    box-shadow: 0 0 4px var(--chanel-gold); /* 은은한 빛 */
+    opacity: 0;
+    animation: riseDust linear infinite;
+}
+
+@keyframes riseDust {
+    0% {
+        transform: translateY(110vh) scale(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+    80% { opacity: 0.5; }
+    100% {
+        transform: translateY(-10vh) scale(1.5); /* 위로 올라가며 사라짐 */
+        opacity: 0;
+    }
+}
+
+/* 2. 자석 버튼(Magnetic) 전환 효과 */
+.magnetic-btn {
+    display: inline-block;
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 부드러운 움직임 */
+    will-change: transform; /* 성능 최적화 */
+}
