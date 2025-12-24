@@ -238,4 +238,38 @@ footer { text-align: center; padding: 80px 0; color: #444; font-size: 0.8rem; bo
     transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 부드러운 움직임 */
     will-change: transform; /* 성능 최적화 */
 }
+    
+.controls-container {
+    background: rgba(255, 255, 255, 0.05); /* 흰색 투명도 5% */
+    backdrop-filter: blur(10px); /* 뒤 배경 흐리게 */
+    -webkit-backdrop-filter: blur(10px); /* 사파리용 */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* 얇은 유리 테두리 */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+  
+.nav-menu a {
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* 길이 0에서 시작 */
+    height: 1px; /* 얇은 줄 */
+    bottom: -5px;
+    left: 50%;
+    background-color: #cfaa65; /* 금색 */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%); /* 중앙 정렬 */
+}
+
+.nav-menu a:hover::after {
+    width: 100%; /* 마우스 올리면 100% 길이로 */
+} 
+/* style.css 맨 아래에 추가 */
+::selection {
+    background-color: #cfaa65; /* 금색 배경 */
+    color: #000000; /* 글자는 검은색 */
+}
 
