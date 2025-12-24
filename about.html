@@ -3,77 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TYLA | About The Muse</title>
+    <title>TYLA | ABOUT</title>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;700&family=Noto+Serif+KR:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* [ABOUT 페이지 전용 스타일] */
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            padding: 100px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 600px;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+            border: 1px solid #333;
+        }
+        
+        .about-image:hover img {
+            filter: grayscale(0%);
+            border-color: var(--chanel-gold);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-title {
+            font-family: var(--font-head);
+            font-size: 4rem;
+            color: var(--chanel-gold);
+            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .about-desc {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #ccc;
+            margin-bottom: 30px;
+            word-break: keep-all;
+        }
+
+        .signature {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 2rem;
+            color: var(--chanel-gold);
+            font-style: italic;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .about-wrapper {
+                flex-direction: column;
+                padding: 100px 20px;
+            }
+            .about-image {
+                width: 100%;
+                height: 400px;
+            }
+            .about-title {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="cursor-dot"></div>
     <div class="cursor-circle"></div>
     <div class="noise-texture"></div>
 
-    <main id="about-page">
-        <header>
-            <div class="header-inner">
-                <a href="index.html" class="logo hover-effect" style="text-decoration: none;">TYLA</a>
-               <nav class="nav-menu">
-    <a href="index.html" class="hover-effect">HOME</a>
-    <span class="active-page">ABOUT</span>
-    <a href="music.html" class="hover-effect">MUSIC</a> <a href="awards.html" class="hover-effect">AWARDS</a>
-</nav>
-            </div>
-        </header>
+    <header>
+        <div class="header-inner">
+            <span class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">TYLA</a></span>
+            <nav class="nav-menu">
+                <a href="about.html" class="active-page">ABOUT</a>
+                <a href="music.html">MUSIC</a>
+                <a href="awards.html">AWARDS</a>
+                <a href="index.html">HOME</a>
+            </nav>
+        </div>
+    </header>
 
-        <section class="about-container">
-            <div class="profile-visual">
-                <div class="image-frame hover-effect">
-                    <img src="images/profile.jpg" alt="Tyla Portrait">
-                    <div class="frame-border"></div>
-                </div>
-                <div class="signature">Tyla Laura Seethal</div>
-            </div>
-
-            <div class="profile-info">
-                <h2 class="intro-heading">THE QUEEN OF<br>POPIANO</h2>
-                <div class="gold-line-short"></div>
-                
-                <p class="bio-text">
-                    남아프리카 공화국 요하네스버그에서 탄생한 글로벌 팝스타, <strong>타일라(Tyla)</strong>. 
-                    그녀는 아프리카의 리드미컬한 비트와 팝의 감성을 결합한 
-                    <strong>'팝피아노(Popiano)'</strong> 장르의 개척자입니다.
-                </p>
-                <p class="bio-text">
-                    데뷔 싱글 "Water"로 전 세계를 강타하며 그래미 어워드를 수상, 
-                    단숨에 시대의 아이콘으로 떠올랐습니다.
-                </p>
-
-                <div class="profile-details">
-                    <div class="detail-item">
-                        <span class="label">BORN</span>
-                        <span class="value">January 30, 2002</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">ORIGIN</span>
-                        <span class="value">Johannesburg, South Africa</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">GENRE</span>
-                        <span class="value">Pop, R&B, Amapiano</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="label">LABEL</span>
-                        <span class="value">Epic Records</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <p>THE ESSENCE OF TYLA</p>
-        </footer>
+    <main class="about-wrapper">
+        <div class="about-image">
+            <img src="images/main-tyla.jpg" alt="Tyla Profile">
+        </div>
+        
+        <div class="about-text">
+            <h1 class="about-title">THE<br>GOLDEN<br>MUSE</h1>
+            <p class="about-desc">
+                남아프리카 요하네스버그에서 태어난 타일라(Tyla)는 팝과 아마피아노(Amapiano)의 경계를 허무는 글로벌 아티스트입니다.<br><br>
+                그녀의 음악은 단순한 청각적 경험을 넘어, 아프리카의 리듬과 현대적인 팝 감성을 융합하여 새로운 장르적 쾌감을 선사합니다. 데뷔와 동시에 전 세계를 매료시킨 "Water"는 그녀가 단순한 신인이 아니라, 이 시대의 새로운 아이콘임을 증명했습니다.
+            </p>
+            <p class="signature">Tyla Laura Seethal</p>
+        </div>
     </main>
+
+    <footer>
+        <p>© 2024 TYLA FAN PORTFOLIO</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-
 </html>
