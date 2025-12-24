@@ -59,12 +59,43 @@
             word-break: keep-all;
         }
 
+        /* 서명 스타일 컨테이너 */
         .signature {
             font-family: 'Bodoni Moda', serif;
             font-size: 2rem;
             color: var(--chanel-gold);
             font-style: italic;
-            text-align: right;
+            text-align: right; /* 우측 정렬 유지 */
+        }
+
+        /* [서명 애니메이션 효과] */
+        .typing-effect {
+            display: inline-block; /* 너비 애니메이션을 위해 필수 */
+            overflow: hidden; /* 글자가 써지기 전엔 숨김 */
+            white-space: nowrap; /* 줄바꿈 방지 */
+            border-right: 2px solid var(--chanel-gold); /* 커서(펜촉) 효과 */
+            width: 0; /* 처음엔 안 보임 */
+            
+            /* 애니메이션 실행: typing(글자 써짐) + blink(커서 깜빡임) */
+            animation: 
+                typing 3.5s steps(40, end) forwards, 
+                blink 0.75s step-end infinite;
+            
+            animation-delay: 0.5s; /* 0.5초 뒤 시작 */
+            vertical-align: bottom;
+        }
+
+        /* 글자가 써지는 애니메이션 */
+        @keyframes typing {
+            0% { width: 0; }
+            90% { width: 100%; border-right-color: var(--chanel-gold); } /* 다 써갈 때쯤 커서 유지 */
+            100% { width: 100%; border-right-color: transparent; } /* 다 쓰면 커서 사라짐 */
+        }
+
+        /* 커서 깜빡임 애니메이션 */
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--chanel-gold); }
         }
 
         @media (max-width: 768px) {
@@ -110,7 +141,10 @@
                 남아프리카 요하네스버그에서 태어난 타일라(Tyla)는 팝과 아마피아노(Amapiano)의 경계를 허무는 글로벌 아티스트입니다.<br><br>
                 그녀의 음악은 단순한 청각적 경험을 넘어, 아프리카의 리듬과 현대적인 팝 감성을 융합하여 새로운 장르적 쾌감을 선사합니다. 데뷔와 동시에 전 세계를 매료시킨 "Water"는 그녀가 단순한 신인이 아니라, 이 시대의 새로운 아이콘임을 증명했습니다.
             </p>
-            <p class="signature">Tyla Laura Seethal</p>
+            
+            <p class="signature">
+                <span class="typing-effect">Tyla Laura Seethal</span>
+            </p>
         </div>
     </main>
 
