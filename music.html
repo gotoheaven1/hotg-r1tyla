@@ -22,6 +22,7 @@
             background-color: transparent;
             height: 400px;
             perspective: 1000px; /* 3D 원근감 */
+            cursor: pointer;
         }
 
         .card-inner {
@@ -72,6 +73,7 @@
             transform: rotateY(180deg);
             padding: 20px;
             border: 1px solid var(--chanel-gold);
+            box-shadow: 0 0 15px rgba(207, 170, 101, 0.2);
         }
 
         .album-title {
@@ -79,6 +81,7 @@
             color: var(--chanel-gold);
             font-size: 1.5rem;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .track-list {
@@ -86,6 +89,7 @@
             font-size: 0.9rem;
             line-height: 2;
             color: #ccc;
+            padding: 0;
         }
     </style>
 </head>
@@ -107,13 +111,14 @@
     </header>
 
     <main class="music-container">
+        
         <div class="album-card">
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="images/album1.jpg" alt="TYLA Album">
+                    <img src="images/cover_tyla.jpg" alt="TYLA Debut Album">
                 </div>
                 <div class="card-back">
-                    <h3 class="album-title">TYLA (Debut)</h3>
+                    <h3 class="album-title">TYLA</h3>
                     <ul class="track-list">
                         <li>1. Intro (feat. Kelvin Momo)</li>
                         <li>2. Safer</li>
@@ -128,16 +133,15 @@
         <div class="album-card">
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="images/album2.jpg" alt="Getting Late">
+                    <img src="images/cover_late.jpg" alt="Getting Late">
                 </div>
                 <div class="card-back">
                     <h3 class="album-title">Getting Late</h3>
                     <ul class="track-list">
                         <li>1. Getting Late</li>
-                        <li>2. To Last</li>
-                        <li>3. Overdue</li>
-                        <li>4. Girl Next Door</li>
-                        <li>5. Been Thinking</li>
+                        <li>(feat. Kooldrink)</li>
+                        <li>-</li>
+                        <li>Global Breakout Single</li>
                     </ul>
                 </div>
             </div>
@@ -146,7 +150,7 @@
         <div class="album-card">
             <div class="card-inner">
                 <div class="card-front">
-                    <img src="images/album3.jpg" alt="Water Remix">
+                    <img src="images/cover_water.jpg" alt="Water Remix">
                 </div>
                 <div class="card-back">
                     <h3 class="album-title">Water (Remix)</h3>
@@ -158,6 +162,108 @@
                 </div>
             </div>
         </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_thinking.jpg" alt="Been Thinking">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">Been Thinking</h3>
+                    <ul class="track-list">
+                        <li>1. Been Thinking</li>
+                        <li>2. To Last</li>
+                        <li>-</li>
+                        <li>2023 Single Release</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_onecall.jpg" alt="One Call">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">One Call</h3>
+                    <ul class="track-list">
+                        <li>1. One Call</li>
+                        <li>-</li>
+                        <li>"One call is all it takes"</li>
+                        <li>From 'TYLA' Album</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_girl.jpg" alt="Girl Next Door">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">Girl Next Door</h3>
+                    <ul class="track-list">
+                        <li>1. Girl Next Door</li>
+                        <li>(feat. Ayra Starr)</li>
+                        <li>-</li>
+                        <li>Afrobeats Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_pbt.jpg" alt="PBT">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">PBT</h3>
+                    <ul class="track-list">
+                        <li>1. PBT</li>
+                        <li>-</li>
+                        <li>Special Release</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_push.jpg" alt="Push 2 Start">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">Push 2 Start</h3>
+                    <ul class="track-list">
+                        <li>1. Push 2 Start</li>
+                        <li>2. Shake Ah</li>
+                        <li>3. Back to You</li>
+                        <li>From 'TYLA +' Deluxe</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="album-card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="images/cover_chanel.jpg" alt="Chanel">
+                </div>
+                <div class="card-back">
+                    <h3 class="album-title">Chanel</h3>
+                    <ul class="track-list">
+                        <li>1. Chanel</li>
+                        <li>-</li>
+                        <li>Concept / Unreleased</li>
+                        <li>or Featured Track</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <footer>
