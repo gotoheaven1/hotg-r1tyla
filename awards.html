@@ -17,6 +17,8 @@
         .section-head {
             text-align: center;
             margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
         }
 
         /* 리스트 컨테이너 */
@@ -24,6 +26,8 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         /* 개별 리스트 아이템 */
@@ -33,8 +37,9 @@
             align-items: center;
             padding: 25px;
             border-bottom: 1px solid #222;
-            transition: all 0.4s ease; /* 부드러운 전환 */
+            transition: all 0.4s ease;
             color: #888;
+            background: rgba(10, 10, 10, 0.5); /* 가독성을 위해 배경 살짝 추가 */
         }
 
         .award-row .year {
@@ -52,21 +57,18 @@
             font-weight: 300;
         }
 
-        /* [ 스포트라이트 효과 핵심 코드 ] */
-        
-        /* 1. 리스트 전체에 마우스를 올렸을 때 -> 모든 항목을 흐리게 만듦 */
+        /* [스포트라이트 효과] */
         .awards-list:hover .award-row {
             opacity: 0.2;
             filter: blur(2px);
             transform: scale(0.98);
         }
 
-        /* 2. 그 중에서 내가 마우스를 올린 항목만 -> 선명하고 크게 만듦 */
         .awards-list .award-row:hover {
             opacity: 1;
             filter: blur(0);
             transform: scale(1.02);
-            background: rgba(207, 170, 101, 0.05); /* 아주 연한 골드 배경 */
+            background: rgba(207, 170, 101, 0.05);
             border-bottom-color: var(--chanel-gold);
             color: var(--text-white);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -74,26 +76,28 @@
             border-radius: 4px;
         }
         
-        /* 호버 시 텍스트 색상 강조 */
         .awards-list .award-row:hover .org {
             color: var(--chanel-gold);
         }
 
-        /* [영상 섹션 스타일 추가] */
+        /* [영상 섹션 스타일] */
         .video-section {
-            margin-top: 120px;
+            margin-top: 150px;
             text-align: center;
+            position: relative; /* 배경 장식을 위해 relative 설정 */
         }
 
         .video-wrapper {
             position: relative;
             width: 100%;
-            max-width: 900px; /* 영상 최대 너비 */
+            max-width: 900px;
             margin: 0 auto;
-            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            padding-bottom: 56.25%;
             height: 0;
-            border: 1px solid var(--chanel-gold); /* 금색 테두리 */
-            box-shadow: 0 0 30px rgba(207, 170, 101, 0.15); /* 은은한 빛 */
+            border: 1px solid var(--chanel-gold);
+            box-shadow: 0 0 50px rgba(207, 170, 101, 0.2);
+            z-index: 2; /* 배경보다 위에 오도록 설정 */
+            background: #000;
         }
 
         .video-wrapper iframe {
@@ -104,12 +108,72 @@
             height: 100%;
         }
 
+        /* [NEW: Golden Orbit Animation] 수상의 영광을 표현하는 회전하는 후광 효과 */
+        .orbit-container {
+            position: absolute;
+            top: 55%; /* 영상의 중앙 쯤에 위치 */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* 마우스 클릭 방해 금지 */
+            z-index: 0; /* 영상 뒤로 배치 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+        }
+
+        /* 첫 번째 궤도 (점선) */
+        .orbit-ring-1 {
+            position: absolute;
+            width: 700px; /* 영상보다 조금 작거나 비슷하게 */
+            height: 700px;
+            border: 1px dashed rgba(207, 160, 93, 0.3);
+            border-radius: 50%;
+            animation: spin-right 30s linear infinite;
+        }
+
+        /* 두 번째 궤도 (실선, 더 큼) */
+        .orbit-ring-2 {
+            position: absolute;
+            width: 950px;
+            height: 950px;
+            border: 1px solid rgba(207, 160, 93, 0.15);
+            border-radius: 50%;
+            animation: spin-left 45s linear infinite;
+        }
+        
+        /* 세 번째 궤도 (장식용 텍스트 효과 or 작은 원) */
+        .orbit-ring-3 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 2px dotted rgba(207, 160, 93, 0.1);
+            border-radius: 50%;
+            animation: spin-right 20s linear infinite;
+        }
+
+        /* 궤도 애니메이션 정의 */
+        @keyframes spin-right {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-left {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+
         @media (max-width: 768px) {
             .award-row {
                 grid-template-columns: 1fr;
                 gap: 10px;
                 text-align: center;
             }
+            .orbit-ring-1 { width: 400px; height: 400px; }
+            .orbit-ring-2 { width: 550px; height: 550px; }
+            .orbit-ring-3 { width: 300px; height: 300px; }
         }
     </style>
 </head>
@@ -174,10 +238,17 @@
         </div>
 
         <div class="video-section">
+            <div class="orbit-container">
+                <div class="orbit-ring-1"></div>
+                <div class="orbit-ring-2"></div>
+                <div class="orbit-ring-3"></div>
+            </div>
+
             <div class="section-head">
                 <h3>GRAMMY MOMENT</h3>
                 <div class="gold-divider"></div>
             </div>
+            
             <div class="video-wrapper">
                 <iframe 
                     src="https://www.youtube.com/embed/np9bcBp9pW8" 
