@@ -79,6 +79,31 @@
             color: var(--chanel-gold);
         }
 
+        /* [영상 섹션 스타일 추가] */
+        .video-section {
+            margin-top: 120px;
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* 영상 최대 너비 */
+            margin: 0 auto;
+            padding-bottom: 56.25%; /* 16:9 비율 유지 */
+            height: 0;
+            border: 1px solid var(--chanel-gold); /* 금색 테두리 */
+            box-shadow: 0 0 30px rgba(207, 170, 101, 0.15); /* 은은한 빛 */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         @media (max-width: 768px) {
             .award-row {
                 grid-template-columns: 1fr;
@@ -147,6 +172,23 @@
                 <div class="detail">Named 'One of the Greatest Pop Stars of 2023'</div>
             </div>
         </div>
+
+        <div class="video-section">
+            <div class="section-head">
+                <h3>GRAMMY MOMENT</h3>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/np9bcBp9pW8" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
     </main>
 
     <footer>
